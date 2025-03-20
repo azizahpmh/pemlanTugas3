@@ -1,0 +1,42 @@
+package Tugas3Pratikum;
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner wedew = new Scanner(System.in);
+        Manajemen manajemenBuku = new Manajemen();
+
+        while (true) {
+            System.out.println();
+            System.out.println("Menu:");
+            System.out.println("1. Tambah Buku");
+            System.out.println("2. Tampilkan Daftar Buku");
+            System.out.println("3. Keluar");
+            System.out.print("Opsi: ");
+            int pilihan = wedew.nextInt();
+            wedew.nextLine();
+
+            switch (pilihan) {
+                case 1:
+                    System.out.print("Masukkan judul buku: ");
+                    String namaBuku = wedew.nextLine();
+                    System.out.print("Masukkan penulis buku: ");
+                    String pengarang = wedew.nextLine();
+                    System.out.print("Masukkan tahun terbit buku: ");
+                    int tahun = wedew.nextInt();
+                    wedew.nextLine();
+                    manajemenBuku.tambahBuku(new Buku(namaBuku, pengarang, tahun));
+                    break;
+                case 2:
+                    manajemenBuku.tampilkanBuku(false);
+                    break;
+                case 3:
+                    System.out.println("Terima kasih!");
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid. Coba lagi.");
+            }                    
+        }
+    }
+}
